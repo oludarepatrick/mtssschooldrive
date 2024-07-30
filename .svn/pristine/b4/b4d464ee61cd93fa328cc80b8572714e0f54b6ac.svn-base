@@ -1,0 +1,63 @@
+
+<div id="border">
+  <div id="login2">
+  <?php echo form_open('author/registration');?>
+  <table width="450" border="0" cellspacing="2" cellpadding="2">
+ <tr>
+    <td class="title" colspan="2">Login Registration</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td>Username</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input  type="text" name="username" value="<?php echo set_value('username');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('username');?></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input  type="password" name="password" value="<?php echo set_value('password');?>"  size="40" class="inputText" /></td>
+    <td class="star"><?php echo form_error('password');?></td>
+  </tr>
+  
+  <tr>
+    <td>Password Again</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input  type="password" name="password2" value="<?php echo set_value('password2');?>"  size="40" class="inputText" /></td>
+    <td class="star"><?php echo form_error('password2');?></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><input  type="text" name="email" value="<?php echo set_value('email');?>"  size="40" class="inputText" /></td>
+    <td class="star"><?php echo form_error('email');?></td>
+  </tr>
+  
+  <tr>
+    <td><input  type="submit" value="Submit"/></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+ </table>
+  </form>
+</div> 
+
+
+  </div>
+ 

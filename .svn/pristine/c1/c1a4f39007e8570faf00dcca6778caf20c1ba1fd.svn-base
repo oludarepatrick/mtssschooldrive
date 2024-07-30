@@ -1,0 +1,25 @@
+
+<div id="border4">
+  <div id="login2">
+  
+  <table width="450" border="0" cellspacing="2" cellpadding="2">
+ <tr>
+    <td class="title" colspan="2"><?php echo $sub_title;?></td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="star" colspan="2"><?php echo $sucess;?></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+   </table>
+</div> 
+
+
+  </div>
+ 

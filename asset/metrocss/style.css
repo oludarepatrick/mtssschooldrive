@@ -1,0 +1,82 @@
+.v-menu {
+	float: left;
+}
+
+.m-content {
+	float:left;
+	width:78%;
+	margin-left: 0.5%;
+	margin-top: 1%;
+}
+
+.tx-red {
+	color: #ff0000;
+}
+
+.head_bg_2 {
+	background-color: #AE1818;
+	padding: 2%;
+	color: #FFF;
+}
+
+.head_bg_1 {
+	background-color: #AE1818;
+	padding: 1%;
+	color: #FFF;
+}
+
+.message_bg_1 {
+	background-color: #bbeeaa;
+	padding: 5px;
+	color: #FFF;
+	border: 1px solid #3fa70a;
+}
+
+.warning_bg_1 {
+	background-color: #f2a8a8;
+	padding: 5px;
+	color: #FFF;
+	border: 1px solid #f63f3f;
+}
+
+.panel_bg_2 {
+	background-color: rgba(0,114,198,0.2);
+	padding: 1%;
+}
+.rotate-it {
+	transform: rotate(-90deg);
+}
+
+.margin2 {
+	padding: 2%;
+}
+
+.login-form {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.result-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 8.27in;
+	max-height: 11.69in;
+}
+
+.login-buttons {
+	margin-top: 30%;
+}
+
+.dl-link {
+	color: #FFF;
+	text-decoration: none;
+	background-color: blue;
+	padding: 3px;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.dl-link:hover {
+	text-decoration: underline;
+}

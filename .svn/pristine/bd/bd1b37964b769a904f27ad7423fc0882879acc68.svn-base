@@ -1,0 +1,12 @@
+<?php
+class Customer extends MY_Model
+{
+
+    function __construct (){
+        parent::__construct();
+        $this->table_name = 'customer';
+        $this->primary_key = 'cust_id';
+        $this->order_by = 'cust_company ASC';
+    }
+
+}

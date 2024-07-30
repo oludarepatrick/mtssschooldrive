@@ -1,0 +1,155 @@
+<div id="border3">
+ <?php echo form_open('payment/paybill');?>
+  <div id="upfront"><table width="356" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="title" colspan="2">Pay Bill</td>
+    
+  </tr>
+  <tr>
+    <td width="181">&nbsp;</td>
+    <td width="161">&nbsp;</td>
+    
+  </tr>
+  <tr>
+    <td>Pay to the order of&nbsp;
+      <select name="vendor" onchange="get_amount_due()" id="order">
+        <option value=""></option>
+        <?php foreach($query_vendor as $rows):?>
+        <option value="<?= $rows['vend_id'];?>">
+          <?= $rows['vend_name'];?>
+          </option>
+        <?php endforeach;?>
+      </select></td>
+    <td class="star"><?= form_error('vendor')?></td>
+    </tr>
+  
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Payment Account&nbsp;
+      <select name="account">
+        <option value=""></option>
+        <?php foreach($query_account as $rows):?>
+        <option value="<?= $rows['account_id'];?>">
+          <?= $rows['account_name'];?>
+          </option>
+        <?php endforeach;?>
+      </select></td>
+    <td class="star"><?= form_error('account')?></td>
+    </tr>
+    <tr>
+    <td width="181">&nbsp;</td>
+    <td width="161">&nbsp;</td>
+    
+  </tr>
+  
+</table>
+</div>
+<div id="upfront2" align="right">
+<table width="300" border="0" cellspacing="2" cellpadding="2">
+<tr><td>&nbsp;</td>
+    <td>Amount due for payment</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+  <td>&nbsp;</td>
+    <td colspan="2"><input id="due" name="due_amount"   readonly="readonly" size=12 />      &nbsp;</td>
+  </tr>
+  <tr>
+  <td>&nbsp;</td>
+    <td class="star" colspan="2"><?= form_error('ref')?></td>
+  </tr>
+ <tr><td>&nbsp;</td>
+    <td>Payment Date</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr><td class="star"><?= form_error('bill_date')?></td>
+    <td><INPUT id="inputField" name="payment_date"  readonly="readonly" size=11 value="<?= set_value('payment_date')?>"> 
+&nbsp;</td>
+    <td><?php echo img('asset/images/calendar5.gif');?>&nbsp;</td>
+  </tr> 
+  <tr>
+  <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+</div>
+  <div id="grid"><!--<table width="730" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="5" class="title">Items</td>
+  </tr>
+  <tr>
+    <td colspan="5" class="notification">Enter your sales items for the invoice</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#666666"> 
+    <td class="title3">#</td>
+    <td class="title3">Quantity</td>
+    <td class="title3">Product/Services Decription</td>
+    <td class="title3">Rate</td>
+    <td class="title3">Amount</td>
+  </tr>-->
+  <!--row1-->
+<div >
+<table width="700" border="0" cellspacing="2" cellpadding="2">
+
+  <tr>
+    <td width="117">&nbsp;</td>
+    <td width="569">&nbsp;</td>
+    
+  </tr>
+  <tr>
+    <td>Amount&nbsp;to be paid</td>
+    <td class="star"><input  type="text" name="amount" size="20"/>      <?= form_error('amount')?></td>
+    </tr>
+    <tr>
+    <td width="117">&nbsp;</td>
+    <td width="569">&nbsp;</td>
+    
+  </tr>
+  <tr>
+    <td>Memo</td>
+    <td class="star"><input  type="text" name="memo" size="67"/><?= form_error('memo')?></td>
+    </tr>
+  
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+    
+ </div>
+ <!--row1-->
+ 
+ <!--row2-->
+
+  <!--<tr>
+    <td>&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td colspan="4" align="right"><input  type="submit" name="save" value="Save" />&nbsp;<input  type="submit" name="save" value="Send" />&nbsp;<input  type="submit" name="save" value="Print" />&nbsp;<input  type="submit" name="save" value="Preview" />&nbsp;<input  type="submit" name="save" value="Cancel" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  
+</table>
+-->
+ 
+ 
+</div> 
+<div id="un_grid"><input type="submit" name="submit" value="Save"/>&nbsp;&nbsp;
+  <input type="button" name="recurring" value="Make Recurring"/>
+  &nbsp;&nbsp;<input type="button" name="cancel" value="Cancel"/></div>
+</form>
+  </div>

@@ -1,0 +1,326 @@
+<?php
+class Author extends CI_Controller{
+	
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('html');
+		$this->load->helper('form');
+		$this->load->model('user');
+		$this->load->model('company');
+		$this->load->model('customer');
+		$this->load->model('vendor');
+		$this->load->model('account');
+		$this->load->model('invoice');
+		$this->load->model('invoice_details');
+		$this->load->model('bills');
+		$this->load->model('bill_details');
+		$this->load->helper('url');
+		$this->load->library('form_validation');
+	}
+	
+	public function index(){
+		$this->load->view('header');
+		//$this->load->view('main');
+		$this->load->view('registration');
+		$this->load->view('footer');
+	}
+	
+	
+	public function registration(){
+		
+		
+		//to set validation rule
+		/*	the validation rule for all forms is set in form_validation.php in 
+			application/config - you always update this if need be. The following 
+			are the naming convention for the various fields
+			 - username
+			 - password
+			 - password2
+			 - email
+		*/
+		
+		if($this->form_validation->run('signup') == FALSE){
+			$this->load->view('header');
+			$this->load->view('registration');
+			$this->load->view('footer');
+			
+		}else{
+			
+			//data from the registration form
+			$data = array(
+					'username' => $_POST['username'],
+					'password' => md5($_POST['password']),
+					'email' => $_POST['email'],	
+				);
+		
+			$this->user->save($data);
+			$report['sucess'] = "You have been successfully registered.";
+			$report['sub_title'] = "Login Registration.";//error message must be an array
+			$this->load->view('header');
+			$this->load->view('registration_sucess', $report);
+			
+		}
+		
+		
+	}
+	
+	public function login(){
+			
+			//$this->load->view('login.php');
+			if($this->form_validation->run('login') == FALSE){
+				
+				$this->load->view('login');
+				
+				
+			}else{
+				//set session 
+				$query = $this->user->get_by(array('username' =>"$username", 'password' => "$password"), NULL, TRUE);
+				$this->session->set_userdata('username', $_POST['username']);
+				$this->session->set_userdata('userID', $query['0']['user_id']);
+				//redirect to the desired page after authentication
+				redirect('author/index');
+				
+				
+			}//if($this->form_validation->run('login') == FALSE){
+			
+			
+			
+	}//public function login(){
+		
+	public function _authentication($username){
+		//if($password = $_POST['password'])
+		//		{
+			 if (isset($_POST['password'])){
+				 $password = $_POST['password'];
+				 $query = $this->user->get_by(array('username' =>"$username", 'password' => "$password"), NULL, TRUE);
+				 if($query) return true;
+			 }
+			//set an error message if username and password are incorrect
+				$this->form_validation->set_message('_authentication', 'Your username / password combination is invalid.');
+				return false;
+			
+	}
+	
+	/*to register company details*/
+	public function company_creation(){
+		
+		if($this->form_validation->run('register') == FALSE){			
+			$this->load->view('header');
+			$this->load->view('company');
+			$this->load->view('footer');
+		}else{
+			
+			//data from the company registration form
+			$data = array(
+					'comp_name' => $_POST['name'],
+					'comp_add' => $_POST['address'],
+					'comp_city' => $_POST['city'],
+					'comp_state' => $_POST['state'],
+					'comp_email' => $_POST['email'],
+					'comp_website' => $_POST['website'],
+					'comp_phone' => $_POST['phone'],
+				);
+		
+			$this->company->save($data);
+			$report['sucess'] = "Your Company have been successfully registered.";//error message must be an array
+			$report['sub_title'] = "Company Details Registration.";//error message must be an array
+			$this->load->view('header');
+			$this->load->view('registration_sucess', $report);
+			
+		}
+	}//register
+	public function customer(){
+			
+			if($this->form_validation->run('customer_register') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('customer');
+				$this->load->view('footer');
+			}else{
+				
+				//data from the company registration form into DB
+				$data = array(
+						'cust_name' => $_POST['title']." ".$_POST['firstname']." ".$_POST['lastname'],	  
+						'cust_company' => $_POST['name'],
+						'cust_displayName' => $_POST['displayname'],
+						'cust_add' => $_POST['address'],
+						'cust_city' => $_POST['city'],
+						'cust_state' => $_POST['state'],
+						'cust_email' => $_POST['email'],
+						'cust_website' => $_POST['website'],
+						'cust_phone' => $_POST['phone'],
+					);
+			
+				$this->customer->save($data);
+				$report['sucess'] = "Your Customer have been successfully registered.";//error message must be an array
+				$report['sub_title'] = "Customer Registration.";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}
+	
+	public function vendor(){
+			
+			if($this->form_validation->run('vendor_register') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('vendor');
+				$this->load->view('footer');
+			}else{
+				
+				//data from the company registration form into DB
+				$data = array(
+						'vend_name' => $_POST['firstname'],	  
+						'vend_company' => $_POST['name'],
+						'vend_displayName' => $_POST['displayname'],
+						'vend_add' => $_POST['address'],
+						'vend_city' => $_POST['city'],
+						'vend_state' => $_POST['state'],
+						'vend_email' => $_POST['email'],
+						'vend_website' => $_POST['website'],
+						'vend_phone' => $_POST['phone'],
+					);
+			
+				$this->vendor->save($data);
+				$report['sucess'] = "Your Vendor have been successfully registered.";//error message must be an array
+				$report['sub_title'] = "Vendor Registration.";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}
+	
+	public function account_creation(){
+			
+			if($this->form_validation->run('account') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('account');
+				$this->load->view('footer');
+			}else{
+				
+				//data from the company registration form into DB
+				$data = array(
+						'account_name' => $_POST['name'],
+						'account_category' => $_POST['category'],
+						'account_description' => $_POST['description'],
+						'account_type' => $_POST['type'],
+						'account_balance' => $_POST['balance'],
+						
+					);
+			
+				$this->account->save($data);
+				$report['sucess'] = "Account is successfully saved.";//error message must be an array
+				$report['sub_title'] = "Account Creation";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}//public function account_creation(){
+		
+	public function invoice(){
+			//fetch customers
+			$reports['query'] = $this->customer->get_assoc();
+	
+			if($this->form_validation->run('invoice') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('invoice', $reports);
+				$this->load->view('footer');
+			}else{
+				
+				//data from the company registration form into DB
+				$data = array(
+						'cust_id' => $_POST['customer'],
+						'billing_add' => $_POST['billing_add'],
+						'inv_date' => $_POST['inv_date'],
+						'due_date' => $_POST['due_date'],
+					);
+				
+				$this->invoice->save($data);
+				
+				//return the last auto-increment invoice id
+				$inv_id = $this->db->insert_id();
+				/**
+				 * fetch the inv_id from invoice table to be saved alongside 
+				 * with invoice items 
+				*/
+				
+				/**
+				 * to fetch all the inputed item on the invoice as a batch
+				 * inorder to insert them at once into the db
+				 */
+				 
+				$array_data = array();
+			
+				for($i=0, $j = count($_POST['sn']); $i<$j; ++$i ){
+						$array_data[] = array('inv_id' => $inv_id, 'sn' => $_POST['sn'][$i],'product' =>$_POST['product'][$i],'description' => $_POST['description'][$i],'amount' => $_POST['amount'][$i]);
+				}
+				
+				
+				//print_r (array_keys($array_data));
+				$this->invoice_details->save($array_data, FALSE, TRUE);
+				$report['sucess'] = "Invoice is successfully saved.";//error message must be an array
+				$report['sub_title'] = "Invoice";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}//public function invoice(){
+	
+	public function enterbill(){
+			//fetch vendors
+			$reports['query_vendor'] = $this->vendor->get_assoc();
+			//fetch accounts
+			$reports['query_account'] = $this->account->get_assoc();
+	
+			if($this->form_validation->run('bill') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('enterbill', $reports);
+				$this->load->view('footer');
+			}else{
+				
+				//data from the company registration form into DB
+				$data = array(
+						'vend_id' => $_POST['vendor'],
+						'bill_add' => $_POST['billing_add'],
+						'bill_date' => $_POST['bill_date'],
+						'bill_duedate' => $_POST['due_date'],
+					);
+				
+				$this->bills->save($data);
+				
+				//return the last auto-increment bill id
+				$bill_id = $this->db->insert_id();
+				/**
+				 * fetch the bill_id from bill table to be saved alongside 
+				 * with bill items 
+				*/
+				
+				/**
+				 * to fetch all the inputed item on the invoice as a batch
+				 * inorder to insert them at once into the db
+				 */
+				 
+				$array_data = array();
+			
+				for($i=0, $j = count($_POST['sn']); $i<$j; ++$i ){
+						$array_data[] = array('bill_id' => $bill_id, 'sn' => $_POST['sn'][$i],'account_id' =>$_POST['account'][$i],'description' => $_POST['description'][$i],'amount' => $_POST['amount'][$i]);
+				}
+				
+				
+				//print_r (array_keys($array_data));
+				$this->bill_details->save($array_data, FALSE, TRUE);
+				$report['sucess'] = "Bill is successfully saved.";//error message must be an array
+				$report['sub_title'] = "Enter Bill";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}//public function enterbill(){
+		
+	public function paybill(){
+		
+		$this->load->view('header');
+		$this->load->view('paybill');
+		$this->load->view('footer');
+	}//public function paybill(){
+	
+}

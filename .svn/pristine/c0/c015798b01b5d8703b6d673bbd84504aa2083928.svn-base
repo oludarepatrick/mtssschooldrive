@@ -1,0 +1,12 @@
+<?php
+class Invoice extends MY_Model
+{
+
+    function __construct (){
+        parent::__construct();
+        $this->table_name = 'invoice';
+        $this->primary_key = 'inv_id';
+        //$this->order_by = 'post_pubdate DESC';
+    }
+
+}

@@ -1,0 +1,440 @@
+/*=========================================================================================================================
+|	
+|		
+|
+|
+===========================================================================================================================
+*/
+
+#main-staff-container{
+	position:relative;
+	margin: 0px auto;
+	width:100%;
+	height:auto;
+	float:left;
+	background-color: #FCFCFC;
+	}
+#main_container{
+	margin: 0px auto;
+	width: auto;
+	
+	}	
+
+#sidemenu_container{
+  	width:14%; /*180px;*/ 
+  	margin: 0px 0px 0px 0px;
+	float:left;
+	display: block;
+	clear:right;
+	border:1px solid #E0E0E0;
+	height:auto;
+
+  
+	}
+
+#middle-column{
+	width:66%;/*820px;*/
+	margin: 0px auto auto;
+	float:left;
+	display:inline-block;
+	padding:0 2px 0 2px;
+}
+#middle-column-create-account{
+	width:820px;
+	margin: 0px auto auto;
+	padding:0 2px 0 2px;
+}
+#middle-column2{
+	
+	margin: 0px auto;
+	float:left;
+	display:inline-block;
+	padding-left:5px;
+	height:100%;
+	width:85%;
+}
+	
+#right-info-column{
+  	width: 19%;/*250px;*/ 
+  	background-color: #F5F5F5;
+	border: #E3E3E3 solid 1px;
+	padding:2px;
+	float:left;
+
+}
+/******************************************************************************************************************************/	
+.user-profile-image{
+						 width:100%; 
+						 height:180px; 
+						 border-bottom:1px #C0C0C0 solid;
+						 }
+.school-news{
+				 width:100%; 
+				
+				 background-color:#FCFCFC;
+				 }
+#chart-room{ 	width:100%; 
+				 height:350px;
+				 background-color:#FCFCFC;}
+/*===============Staff user style sheet==========================*/
+
+
+#edit-profile-border{
+	margin:0px;
+	
+}
+.mess{
+	color:#008000;
+	letter-spacing:3px;
+	font-size:16px;	
+	}
+	
+	.avatar{ background: url(image/User-1-128.png) #FDFDFD no-repeat; border: 1px #EFEFEF solid; padding:2px; height:120px; width:120px}
+	.avatar:hover{ cursor:pointer;}
+/*==========================================Query_form_result.php=============================================================*/
+.clear{ clear:both}
+#query-box{
+	
+	/*margin:-25px auto auto 20%;*/
+	padding:5px;
+	border: 1px solid #C8C8C8;
+	background:  #F4F4F4; /*#F0F0F0;*/
+	
+	
+	}
+#result-type{
+	clear: both;
+	margin:0px;
+	border: 1px solid  #FAFAFA;
+	background: #F0F0F0;/*#EDEDED;*/
+	width:100%;
+	padding: 10px 0 0 0; 
+	
+	}
+#result-type legend{
+	letter-spacing:2px;
+	font-size: 12px;
+	font-weight:bold;
+	color: #2E2E2E;
+	font-family: verdana;
+	text-align:left;
+	border-bottom: none;
+	line-height:5px;
+	margin-bottom:0px
+	}
+	
+/*=============================================score_input.php=================================-=======================*/
+
+#class-info{
+	padding:10px 0px 10px 0px;
+	border:1px solid  #A6A6A6;
+	/*width:100%;
+	height:20px;*/
+	background: #E8E8E8;
+	text-align:center;
+	font-size:16px;
+	color:#2191c0;
+	
+}
+
+#class-info-2{
+	padding:10px 0px 10px 0px;
+	border:1px solid  #eee;
+	background: #E8E8E8;
+	text-align:center;
+	font-size:16px;
+	color:#2191c0;
+	
+}
+#student-info{
+	padding:9px 0px 9px 0px;
+	border:1px solid  #A6A6A6;
+	width:100%;
+	height:30px;
+	background: #E8E8E8;
+	text-align:center;
+	
+	
+}
+#no-border{
+	border:none;
+	background:transparent;
+}
+#student-list-border{
+	/*margin:0% auto auto 20% ;*/
+	padding:4px 4px 4px 4px;
+	border: 1px solid #eee;
+	
+	
+}
+#student-list-border table{ width:100%}
+#student-list-border table td { border: 1px solid #eee; text-align: left; color:#696969; font-size:70%; padding:0 0 0 2px; } 
+#student-list-border table#submit-button td { border: none; margin-top:10px; } 
+#student-list-border table th{ border: 1px solid  #eee; height:40px;}
+
+
+.even-row{
+		
+	 background-color: #F3F3F3;
+	 background: -webkit-gradient(linear, left top, left bottom, from(#FCFCFC), to( #F3F3F3));
+	 background: -webkit-linear-gradient(top, #FCFCFC, #F3F3F3);
+	 background: -moz-linear-gradient(top, #FCFCFC, #F3F3F3);
+	 background: -ms-linear-gradient(top, #FCFCFC, #F3F3F3);
+	 background: -o-linear-gradient(top, #FCFCFC, #F3F3F3);
+	 background: linear-gradient(top, #FCFCFC, #F3F3F3);
+}
+
+.for-admin{ font-style:italic; font-size:10px;}
+.comment-text{ font-family:Verdana, Geneva, sans-serif; font-size:11px;}
+.ok-mess{
+		
+		border:1px solid #F3F3F3 ;
+		width:100%;
+		height:30px;
+		padding:10px 0 0 0px;
+		background-color: #DEF596;
+		font-size:14px;
+		text-align:center;
+		margin-left:0px;
+		}
+	.text-ok{ padding-left:10px; vertical-align:top; color: #060;}
+.err-mess{
+		
+		border:1px solid #F3F3F3 ;
+		width:100%;
+		height:30px;
+		padding:10px 0 0 0px;
+		background-color: #FFD9D9;/*#DEF596*/
+		font-size:14px;
+		text-align:center;
+		margin-left:0px;
+		
+		}
+	.text-err{ padding-left:10px; vertical-align:top; color: #F00;}
+	
+	
+/*=============================================VEIW RESULT==================================================================*/
+.schoolname{
+	margin-top:10px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 36px;
+	color:black;
+	text-align:center;
+	vertical-align:bottom;
+	font-weight:bold;
+	letter-spacing:1px
+	
+	
+	}
+	
+.title, .title2{
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:12px;
+	color:#036;
+	font-weight:bold;
+	}
+	
+.student_detail{ color:black; font-family:Arial, Helvetica, sans-serif;font-size:12px; letter-spacing:1; text-align:left}	
+.student_label{ color: #306; font-family:Arial, Helvetica, sans-serif;font-size:12px; font-weight:200}
+.slogan{ font-size:12px; color: #2E2E2E; font-family:"Times New Roman", Times, serif}
+.school_add{ color:#2B2B2B; font-size:12px; font-family:Tahoma, Geneva, sans-serif}
+.subjects{ font-family:Georgia, "Times New Roman", Times, serif; font-size:12px;}
+.teacher{ font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:12px; }
+
+.head{ font:"Times New Roman", Times, serif; font-size:12px; color:#030303}
+.head2{ font-size:14px; color: #383838; font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif}
+.head3{ font-size:14px;  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif}
+.text{ font-size:12px}
+.text2{ font-size:13px; color:#000040}
+.score{ font-family:Georgia, "Times New Roman", Times, serif; font-size:12; text-align:center}
+.skills{ font-size:12; }
+.remark{ font-family:Georgia, "Times New Roman", Times, serif; font-size:12; text-align:left}
+.fail{ color:red; font-weight:bold}
+.pass{color: #393; font-weight:bold; }
+.fail1, .fail_red{ color:red ; font-family: "Arial Black", Gadget, sans-serif!important; font-size:12px!important }
+.pass1{color: #060;  font-family: "Arial Black", Gadget, sans-serif; font-size:12px}
+.red{color:red}
+.readmore{color:red}
+.readmore:hover{color:#039; cursor:pointer}
+.image{ z-index:-100}
+.pass_row{ background-color: #EAFCE2}
+.fail_row{ background-color: #FFF0F0}
+.head_brdsheet{ color:#006; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size:18px}
+.text_header{ font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif; background-color:#F2F2F2; font-size:12px}
+.rotate {
+	transform: rotate(-90deg);
+
+	/* Safari */
+	-webkit-transform: rotate(-90deg);
+
+	/* Firefox */
+	-moz-transform: rotate(-90deg);
+
+	/* IE */
+	-ms-transform: rotate(-90deg);
+
+	/* Opera */
+	-o-transform: rotate(-90deg);
+
+	/* Internet Explorer */
+	
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	/*display: inline;*/
+	width:5px;
+	margin:60px 0 0 6px;
+
+}
+.ui-widget-header{ font-size:90%; color:white; padding:1em .2m; }
+.subject-title{ 
+					color:#ff6600;/*#970097;*/ 
+					font-size:16px; 
+					float:right; 			
+					border:1px solid #8080FF;
+					padding:2px 8px; 
+					background-color:#F7F7F7;
+					margin-right:5px;
+					}
+		
+.subject{
+	font-family: Verdana, Geneva, sans-serif;
+	color:black;
+	font-size:12px;
+	width:200px;
+	font-weight:500;
+	}
+.box{
+	border:#131313 solid 1px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	}
+.box3{
+	border:#131313 solid 1px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	height:5px
+	}
+	
+.box2{
+	border:#131313 solid 1px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	width: 50px;
+	height:20px;
+	}
+	
+	.pagination {
+  margin: 20px 0;
+}
+
+.pagination ul {
+  display: inline-block;
+  *display: inline;
+  margin-bottom: 0;
+  margin-left: 0;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pagination ul > li {
+  display: inline;
+}
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+  float: left;
+  padding: 4px 12px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-left-width: 0;
+}
+
+.pagination ul > li > a:hover,
+.pagination ul > li > a:focus,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background-color: #f5f5f5;
+}
+
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  color: #999999;
+  cursor: default;
+}
+
+.pagination ul > .disabled > span,
+.pagination ul > .disabled > a,
+.pagination ul > .disabled > a:hover,
+.pagination ul > .disabled > a:focus {
+  color: #999999;
+  cursor: default;
+  background-color: transparent;
+}
+
+.pagination ul > li:first-child > a,
+.pagination ul > li:first-child > span {
+  border-left-width: 1px;
+  -webkit-border-bottom-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+          border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.pagination ul > li:last-child > a,
+.pagination ul > li:last-child > span {
+  -webkit-border-top-right-radius: 4px;
+          border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+
+
+.brand{ position:relative;
+		right: 0px;
+		float:right;
+		
+		}
+.power{ font-size:11px; color:#F33; font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif}
+.abs{ font-size:10px; color: #390; font-family:Verdana, Geneva, sans-serif}
+.url{ letter-spacing:2; color:#00F; font-size:12px}
+
+
+/*============================================================================================================================*/
+#staff_sidebar-name-bgrd{
+	 background-color: #030350; /*#343434  #292929*/
+	 background: -webkit-gradient(linear, left top, left bottom, from(#29298d), to( #030350));
+	 background: -webkit-linear-gradient(top, #29298d, #030350);
+	 background: -moz-linear-gradient(top, #29298d, #030350);
+	 background: -ms-linear-gradient(top,#29298d, #030350);
+	 background: -o-linear-gradient(top, #29298d, #030350);
+	 background: linear-gradient(top, #29298d,#030350);
+	 height:40px;
+	 border:2px solid #ffffff;
+	 margin-top:0px;
+	 text-align:center;
+	 vertical-align:middle;
+	
+	}
+.staff_sidebar-center {text-align:center;width:98%; background-color:#E9E9E9}
+.staff_sidebar-cat{ 
+				color:white;
+				font-family: "Comic Sans MS", cursive; 
+				font-size:120%;
+				font-weight:bolder;
+				-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    			-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+				line-height:40px;
+		}
+
+

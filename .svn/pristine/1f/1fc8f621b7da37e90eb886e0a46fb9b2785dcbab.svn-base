@@ -1,0 +1,119 @@
+
+<div id="border">
+  <div id="login2">
+  <?php echo form_open('author/customer');?>
+  <table width="500" border="0" cellspacing="2" cellpadding="2">
+ <tr>
+    <td class="title" colspan="3">Customer Registration</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+   <tr>
+    <td colspan="2">Title&nbsp;&nbsp;<input  type="text" name="title" value="<?php echo set_value('title');?>"  size="4" />&nbsp;&nbsp;First Name&nbsp;&nbsp;<input  type="text" name="firstname" value="<?php echo set_value('firstname');?>"   size="10" />&nbsp;&nbsp;Last Name<input  type="text" name="lastname" value="<?php echo set_value('lastname');?>" size="10" /></td>
+    <td class="star"><?php echo form_error('title'). form_error('firstname'). form_error('lastname');?></td>
+  </tr>
+  <tr>
+    <td>Company Name</td>
+    <td><input  type="text" name="name" value="<?php echo set_value('name');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('name');?></td>
+  </tr>
+  <tr>
+    <td>Display Name</td>
+    <td><input  type="text" name="displayname" value="<?php echo set_value('displayname');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('displayname');?></td>
+  </tr>
+
+  <tr>
+    <td>Company Address</td>
+    <td><textarea name="address" ><?php echo set_value('address'); ?></textarea></td>
+    <td class="star"><?php echo form_error('address');?></td>
+  </tr>
+ 
+  <tr>
+    <td>City</td>
+    <td><input  type="text" name="city" value="<?php echo set_value('city');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('city');?></td>
+  </tr>
+  
+  <tr>
+    <td>State</td>
+    <td><select name="state" >
+      <option value="Abia"  >Abia</option>
+      <option  value="Abuja" >Abuja</option>
+      <option  value="Adamawa" >Adamawa</option>
+      <option value="AkwaIbom"  >AkwaIbom</option>
+      <option  value="Anambra" >Anambra</option>
+      <option  value="Bauchi" >Bauchi</option>
+      <option  value="Bayelsa" >Bayelsa</option>
+      <option  value="Benue" >Benue</option>
+      <option  value="Borno" >Borno</option>
+      <option  value="CrossRiver" >CrossRiver</option>
+      <option  value="Delta" >Delta</option>
+      <option  value="Ebonyi" >Ebonyi</option>
+      <option  value="Edo" >Edo</option>
+      <option  value="Ekiti" >Ekiti</option>
+      <option  value="Enugu">Enugu</option>
+      <option  value="Gombe">Gombe</option>
+      <option  value="Imo" >Imo</option>
+      <option  value="Jigawa" >Jigawa</option>
+      <option  value="Kaduna">Kaduna</option>
+      <option  value="Kano" >Kano</option>
+      <option  value="Katsina" >Katsina</option>
+      <option  value="Kebbi">Kebbi</option>
+      <option  value="Kogi" >Kogi</option>
+      <option  value="Kwara" >Kwara</option>
+      <option  value="Lagos" >Lagos</option>
+      <option  value="Nassarawa" >Nassarawa</option>
+      <option  value="Niger" >Niger</option>
+      <option  value="Ogun" >Ogun</option>
+      <option  value="Ondo" >Ondo</option>
+      <option  value="Osun">Osun</option>
+      <option  value="Oyo" >Oyo</option>
+      <option  value="Plateau" >Plateau</option>
+      <option  value="Rivers" >Rivers</option>
+      <option  value="Sokoto" >Sokoto</option>
+      <option  value="Taraba" >Taraba</option>
+      <option  value="Yobe" >Yobe</option>
+      <option  value="Zamfara" >Zamfara</option>
+    </select></td>
+     <td class="star"><?php echo form_error('state');?></td>
+  </tr>
+  
+  <tr>
+    <td>Company Email</td>
+    <td><input  type="text" name="email" value="<?php echo set_value('email');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('email');?></td>
+  </tr>
+  
+  <tr>
+    <td>Company Website</td>
+    <td><input  type="text" name="website" value="<?php echo set_value('website');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('website');?></td>
+  </tr>
+  
+  <tr>
+    <td>Company Phone</td>
+    <td><input  type="text" name="phone" value="<?php echo set_value('phone');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('phone');?></td>
+  </tr>
+  
+  <tr>
+    <td><input  type="submit" value="Submit"/></td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+ </table>
+  </form>
+</div> 
+
+
+  </div>
+ 

@@ -1,0 +1,273 @@
+<?php 
+
+$config = array( 
+			'signup' => array(
+						   array(
+								 'field'   => 'username', 
+								 'label'   => 'Username', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'password', 
+								 'label'   => 'Password', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'password2', 
+								 'label'   => 'Password Confirmation', 
+								 'rules'   => 'required|matches[password]'
+							  ),   
+						   array(
+								 'field'   => 'email', 
+								 'label'   => 'Email', 
+								 'rules'   => 'required|valid_email'
+							  )
+            ),//signup
+			'login' => array(
+						   array(
+								 'field'   => 'username', 
+								 'label'   => 'Username', 
+								 'rules'   => 'required|callback__authentication'
+							  ),
+						   array(
+								 'field'   => 'password', 
+								 'label'   => 'Password', 
+								 'rules'   => 'required'
+							  )
+			),//login
+			'account' => array(
+						   array(
+								 'field'   => 'name', 
+								 'label'   => 'Account name', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'description', 
+								 'label'   => 'Account description', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'type', 
+								 'label'   => 'Account type', 
+								 'rules'   => 'required'
+							  ),
+						    array(
+								 'field'   => 'category', 
+								 'label'   => 'Account Categories', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'balance', 
+								 'label'   => 'Opening Balance', 
+								 'rules'   => 'required|numeric'
+							  )
+						 
+			),//account
+			'register' => array(
+						   array(
+								 'field'   => 'name', 
+								 'label'   => 'Name', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'address', 
+								 'label'   => 'Address', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'city', 
+								 'label'   => 'City', 
+								 'rules'   => 'required'
+							  ),   
+						   array(
+								 'field'   => 'email', 
+								 'label'   => 'Email', 
+								 'rules'   => 'required|valid_email'
+							  ),
+						   array(
+								 'field'   => 'state', 
+								 'label'   => 'State', 
+								 'rules'   => 'required'
+							  ),
+						   	array(
+								 'field'   => 'phone', 
+								 'label'   => 'Phone', 
+								 'rules'   => 'required|numeric'
+							  )
+						   
+						  
+						   
+            ),//register
+			'invoice' => array(
+						   array(
+								 'field'   => 'customer', 
+								 'label'   => 'Customer', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'inv_date', 
+								 'label'   => 'Invoice date', 
+								 'rules'   => 'required'
+							  )
+            ),//invoice
+			'bill' => array(
+						   array(
+								 'field'   => 'vendor', 
+								 'label'   => 'Vendor', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'bill_date', 
+								 'label'   => 'Bill date', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'due_date', 
+								 'label'   => 'Bill due date', 
+								 'rules'   => 'required'
+							  )
+            ),//invoice
+				'payment' => array(
+						   array(
+								 'field'   => 'vendor', 
+								 'label'   => 'Vendor', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'account', 
+								 'label'   => 'Account', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'payment_date', 
+								 'label'   => 'Payment date', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'amount',
+								 'label'   => 'Amount', 
+								 'rules'   => 'required|numeric'
+							  ),
+            ),//payment
+		
+			'customer_register' => array(
+						   array(
+								 'field'   => 'title', 
+								 'label'   => 'Title', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'firstname', 
+								 'label'   => 'First Name', 
+								 'rules'   => 'required'
+							  ),
+						   array(
+								 'field'   => 'lastname', 
+								 'label'   => 'Last Name', 
+								 'rules'   => 'required'
+							  ),
+							array(
+								 'field'   => 'name', 
+								 'label'   => 'Company Name', 
+								 'rules'   => 'required'
+							  ),
+							array(
+								 'field'   => 'displayname', 
+								 'label'   => 'Display Name', 
+								 'rules'   => ''
+							  ),
+							array(
+								 'field'   => 'address', 
+								 'label'   => 'Address', 
+								 'rules'   => ''
+							  ),
+							array(
+								 'field'   => 'city', 
+								 'label'   => 'City', 
+								 'rules'   => ''
+							  ),   
+						
+						   array(
+								 'field'   => 'state', 
+								 'label'   => 'State', 
+								 'rules'   => ''
+							  ),
+						   
+						   array(
+								 'field'   => 'email', 
+								 'label'   => 'Email', 
+								 'rules'   => 'valid_email'
+							  ),
+						    array(
+								 'field'   => 'website', 
+								 'label'   => 'Website', 
+								 'rules'   => ''
+							  ),
+						  
+						   	array(
+								 'field'   => 'phone', 
+								 'label'   => 'Phone', 
+								 'rules'   => 'numeric'
+							  )
+						   
+						  
+						   
+            ),
+			'vendor_register' => array(
+						   
+						   array(
+								 'field'   => 'firstname', 
+								 'label'   => 'First Name', 
+								 'rules'   => 'required'
+							  ),
+						  
+							array(
+								 'field'   => 'name', 
+								 'label'   => 'Company Name', 
+								 'rules'   => 'required'
+							  ),
+							array(
+								 'field'   => 'displayname', 
+								 'label'   => 'Display Name', 
+								 'rules'   => ''
+							  ),
+							array(
+								 'field'   => 'address', 
+								 'label'   => 'Address', 
+								 'rules'   => ''
+							  ),
+							array(
+								 'field'   => 'city', 
+								 'label'   => 'City', 
+								 'rules'   => ''
+							  ),   
+						
+						   array(
+								 'field'   => 'state', 
+								 'label'   => 'State', 
+								 'rules'   => ''
+							  ),
+						   
+						   array(
+								 'field'   => 'email', 
+								 'label'   => 'Email', 
+								 'rules'   => 'valid_email'
+							  ),
+						    array(
+								 'field'   => 'website', 
+								 'label'   => 'Website', 
+								 'rules'   => ''
+							  ),
+						  
+						   	array(
+								 'field'   => 'phone', 
+								 'label'   => 'Phone', 
+								 'rules'   => 'numeric'
+							  )
+						   
+						  
+						   
+            )//register
+		);//universal array
+
+?>

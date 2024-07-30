@@ -1,0 +1,166 @@
+<?php
+class Payment extends CI_Controller{
+	
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('html');
+		$this->load->helper('form');
+		$this->load->model('user');
+		$this->load->model('company');
+		$this->load->model('customer');
+		$this->load->model('vendor');
+		$this->load->model('account');
+		$this->load->model('invoice');
+		$this->load->model('invoice_details');
+		$this->load->model('bills');
+		$this->load->model('transaction');
+		$this->load->model('bill_details');
+		$this->load->helper('url');
+		$this->load->library('form_validation');
+		
+	}
+	
+	public function index(){
+		$this->load->view('header');
+		//$this->load->view('main');
+		$this->load->view('registration');
+		$this->load->view('footer');
+	}
+	
+	public function vendor(){
+			
+			if($this->form_validation->run('vendor_register') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('vendor');
+				$this->load->view('footer');
+			}else{
+				
+				//data from the company registration form into DB
+				$data = array(
+						'vend_name' => $_POST['firstname'],	  
+						'vend_company' => $_POST['name'],
+						'vend_displayName' => $_POST['displayname'],
+						'vend_add' => $_POST['address'],
+						'vend_city' => $_POST['city'],
+						'vend_state' => $_POST['state'],
+						'vend_email' => $_POST['email'],
+						'vend_website' => $_POST['website'],
+						'vend_phone' => $_POST['phone'],
+					);
+			
+				$this->vendor->save($data);
+				$report['sucess'] = "Your Vendor have been successfully registered.";//error message must be an array
+				$report['sub_title'] = "Vendor Registration.";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}
+	
+	
+	public function enterbill(){
+			//fetch vendors
+			$reports['query_vendor'] = $this->vendor->get_assoc();
+			//fetch accounts
+			$reports['query_account'] = $this->account->get_assoc();
+	
+			if($this->form_validation->run('bill') == FALSE){			
+				$this->load->view('header');
+				$this->load->view('enterbill', $reports);
+				$this->load->view('footer');
+			}else{
+				
+				//data from the enter bill form into DB
+				$data = array(
+						'vend_id' => $_POST['vendor'],
+						'bill_add' => $_POST['billing_add'],
+						'bill_date' => $_POST['bill_date'],
+						'bill_duedate' => $_POST['due_date'],
+					);
+				
+				$this->bills->save($data);
+				
+				//return the last auto-increment bill id
+				$bill_id = $this->db->insert_id();
+				/**
+				 * fetch the bill_id from bill table to be saved alongside 
+				 * with bill items 
+				*/
+				
+				/**
+				 * to fetch all the inputed item on the invoice as a batch
+				 * inorder to insert them at once into the db
+				 */
+				 
+				$array_data = array();
+			
+				for($i=0, $j = count($_POST['sn']); $i<$j; ++$i ){
+						$array_data[] = array('bill_id' => $bill_id, 'sn' => $_POST['sn'][$i],'account_id' =>$_POST['account'][$i],'description' => $_POST['description'][$i],'amount' => $_POST['amount'][$i]);
+				}
+				
+				
+				//print_r (array_keys($array_data));
+				$this->bill_details->save($array_data, FALSE, TRUE);
+				$report['sucess'] = "Bill is successfully saved.";//error message must be an array
+				$report['sub_title'] = "Enter Bill";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			}
+	}//public function enterbill(){
+		
+	public function paybill(){
+		//fetch vendors for bill with unattended status
+		
+			//$reports['query_vendor'] = $this->vendor->get_assoc();
+			//$reports['query_vendor'] = $this->bills->get_join_table($this->vendor->table_name, $this->vendor->primary_key);
+			$reports['query_vendor'] = $this->bills->get_bill_vendor();
+			//fetch accounts
+			$reports['query_account'] = $this->account->get_assoc();
+			
+			
+		if($this->form_validation->run('payment') == FALSE){
+			
+			$this->load->view('header');
+			$this->load->view('paybill', $reports);
+			$this->load->view('footer');
+		}else{
+			//data from the enter bill form into DB
+				$data = array(
+						'account' => $_POST['account'],
+						'amount' => $_POST['amount'],
+						'transaction' => $_POST['vendor'],
+						'transaction_date' => $_POST['payment_date'],
+						'memo' => $_POST['memo'],
+						'transaction_type'=>'0',
+						
+					);
+				
+				//$this->transaction->save($data);
+				//get the current balance and deduct payment
+				$balance = $this->account->get_key_value('account_balance', 'account_type', $_POST['account']);
+				//echo $balance[0]['account_balance'];
+				$post_balance = $balance['0']['account_balance'] - $_POST['amount'];
+				//echo $post_balance;
+				//update the account
+				$account_data = array('account_balance' => $post_balance);
+				$this->account->save($account_data, $_POST['account']);
+				
+				$report['sucess'] = "Payment is successfully made.";//error message must be an array
+				$report['sub_title'] = "Pay Bill";//error message must be an array
+				$this->load->view('header');
+				$this->load->view('registration_sucess', $report);
+				
+			
+		}
+	}//public function paybill(){
+	
+	public function dueamount(){
+		$id = $this->uri->segment(3);
+		$dueamount = $this->bills->get($id);
+		echo $dueamount['amount'];
+		
+		
+	}
+	
+}

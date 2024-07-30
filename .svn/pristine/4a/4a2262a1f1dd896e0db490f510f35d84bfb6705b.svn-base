@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<!--<link rel="stylesheet"  href="../../asset/mycss.css"type="text/css"/>-->
+<?php echo link_tag('asset/mycss.css');?>
+<?php echo link_tag('asset/jsDatePick_ltr.min.css');?>
+
+
+<script type="text/javascript" src="../../asset/jsDatePick.min.1.3.js"></script>
+<!---->
+<script type="text/javascript">
+	window.onload = function(){
+		new JsDatePick({
+			useMode:2,
+			target:"inputField2",
+			dateFormat:"%d-%M-%Y"
+			
+});
+	};
+</script>
+<!---->
+<script type="text/javascript" src="../../asset/jsDatePicks.min.1.3.js"></script>
+
+<script type="text/javascript">
+	window.onload = function(){
+		new JsDatePick({
+			useMode:2,
+			target:"inputField",
+			dateFormat:"%d-%M-%Y"
+});
+	};
+</script>
+<!---->
+<script type="text/javascript"  src="../../asset/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){  
+    $("#menu li a.main-link").hover(function(){  
+		 $("#menu li a.main-link").removeClass("active");  
+		 $(this).addClass("active");
+		 $(".sub-links").hide();  
+		 $(this).siblings(".sub-links").fadeIn(); 
+    });   
+  
+});  
+</script>
+
+<script type="text/javascript" language="javascript">
+ var request = null;
+
+   try {
+     request = new XMLHttpRequest();
+   } catch (trymicrosoft) {
+     try {
+       request = new ActiveXObject("Msxml2.XMLHTTP");
+     } catch (othermicrosoft) {
+       try {
+         request = new ActiveXObject("Microsoft.XMLHTTP");
+       } catch (failed) {
+         request = null;
+       }
+     }
+   }
+
+   if (request == null)
+     alert("Error creating request object!");
+
+	function get_amount_due(){
+		var order = document.getElementById("order").value;
+		
+		/*alert("You are welcome," + order);*/
+		var url = "<?= site_url('payment/dueamount');?>"  + "/" + order;
+		request.open("GET", url, true);
+		request.onreadystatechange = updatePage;
+     	request.send(null);
+		
+	}
+	
+	function updatePage(){
+		if(request.readyState == 4){
+			if(request.status == 200){
+			/*Get response from the server*/
+			var due_amount = request.responseText;
+			/*Update the page*/
+			document.getElementById('due').value = due_amount;
+			}else{
+				alert("Error! Request Status is" + request.status);
+			}
+		}
+	}
+
+</script>
+</head>
+
+<body  id="mainbg">
+
+<div id="header_in">
+<div id="powerd"><a href="http://abstract-inv.com" target="_blank"><?php echo img('asset/images/powered.gif');?><!--<img src="../../asset/images/powered.gif" width="250" height="35" title="Author is developed by Abstract Innovations" alt="Abstract Logo" longdesc="http://abstract-inv.com" />--></a></div>
+<div id="logo"></div>
+<div id="link">
+<ul id="menu">
+<li><a class="main-link" href="#">Home</a>
+	<ul class="sub-links">
+	<li><a href="#">News</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">About</a></li>
+    </ul>
+<li><a class="main-link" href="#">Company</a>
+	<ul class="sub-links">
+    <li><?php echo anchor('author/account_creation', 'Charts of Account');?></li>
+    <li><a href="#">Recurring Transactions</a></li>
+    <li><?php echo anchor('author/company_creation', 'Settings');?></li>
+    <li><a href="#">Budgets</a></li>
+    <li><?php echo anchor('author/registration', 'Users');?></li>
+    </ul>
+</li>
+<li><a class="main-link" href="#">Income</a>
+	<ul class="sub-links">
+	<li><?php echo anchor('author/customer', 'Our Customers');?></li>
+    <li><a href="#">Income List</a></li>
+    <li><a href="#">Sales Receipt</a></li>
+    <li><?php echo anchor('author/invoice', 'Invoice');?></li>
+    <li><a href="#">New Invoice</a></li>
+    <li><a href="#">Receive Payment</a></li>
+    </ul>
+</li>
+<li><a class="main-link" href="#">Payment</a>
+<ul class="sub-links">
+	<li><?php echo anchor('author/vendor', 'Our Vendors');?></li>
+    <li><a href="#">Purchase Order</a></li>
+    <li><?php echo anchor('payment/enterbill', 'Enter Bill');?></li>
+    <li><?php echo anchor('payment/paybill', 'Pay Bill');?></li>
+    <li><a href="#">Pay Vendor</a></li>
+    </ul>
+</li>
+<li style="background-image:none"><a   class="main-link" href="#">Reports</a>
+
+</li>
+</ul>
+
+</div>

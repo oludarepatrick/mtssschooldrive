@@ -1,0 +1,12 @@
+<?php
+class Vendor extends MY_Model
+{
+
+    function __construct (){
+        parent::__construct();
+        $this->table_name = 'vendor';
+        $this->primary_key = 'vend_id';
+        $this->order_by = 'vend_name Asc';
+    }
+
+}

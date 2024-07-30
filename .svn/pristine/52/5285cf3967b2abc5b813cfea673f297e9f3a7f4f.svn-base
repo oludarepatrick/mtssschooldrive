@@ -1,0 +1,90 @@
+
+<div id="border">
+  <div id="login2">
+  <?php echo form_open('author/account_creation');?>
+  <table width="500" border="0" cellspacing="2" cellpadding="2">
+ <tr>
+    <td class="title" colspan="3">Create An Account</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+   <tr>
+   <td>Account Name</td>
+    <td ><input  type="text" name="name" value="<?php echo set_value('name');?>" size="40" /></td>
+    <td class="star"><?php echo form_error('name');?></td>
+  </tr>
+  <tr>
+    <td>Account Description</td>
+    <td><input  type="text" name="description" value="<?php echo set_value('description');?>"  class="inputText" size="40" /></td>
+    <td class="star"><?php echo form_error('description');?></td>
+  </tr>
+
+  <tr>
+    <td>Account Categories</td>
+    <td><select name="category" >
+      <option value=""  <?= set_select('category', '', TRUE);?>>--SELECT--</option>
+      <option value="Bank"  <?= set_select('category', 'Bank');?>>Bank</option>
+      <option  value="Car,Truck" <?= set_select('category', 'Car,Truck');?> >Car,Truck</option>
+      <option  value="Loan" <?= set_select('category', 'Loan');?>>Loan</option>
+      <option value="Income"  <?= set_select('category', 'Income');?>>Income</option>
+      <option value="Expense"  <?= set_select('category', 'Expense');?>>Expense</option>
+    </select></td>
+     <td class="star"><?php echo form_error('category');?></td>
+  </tr>
+  <tr>
+    <td>Account Sub-Type</td>
+    <td><select name="type" >
+      <option value=""  <?= set_select('type', '', TRUE);?>>--SELECT--</option>
+      <option value="Advertising/Promotional"  <?= set_select('type', 'Advertising/Promotional');?>>Advertising/Promotional</option>
+      <option  value="Auto" <?= set_select('type', 'Auto');?> >Auto</option>
+      <option  value="Bad Debts" <?= set_select('type', 'Bad Debts');?>>Bad Debts</option>
+      <option value="Bank Charges"  <?= set_select('type', 'Bank Charges');?>>Bank Charges</option>
+      <option value="Cash Expenditure Expense"  <?= set_select('type', 'Cash Expenditure Expense');?>>Cash Expenditure Expense</option>
+       <option value="Charitable Contributions" <?= set_select('type', 'Charitable Contributions');?> >Charitable Contributions</option>
+      <option value="Cost of Labour"  <?= set_select('type', 'Cost of Labour');?>>Cost of Labour</option>
+      <option  value="Dues & Subscription" <?= set_select('type', 'Dues & Subscription');?>>Dues & Subscription</option>
+      <option  value="Entertainment" <?= set_select('type', 'Entertainment');?>>Entertainment</option>
+      <option value="Equipment Rentals"  <?= set_select('type', 'Equipment Rentals');?>>Equipment rentals</option>
+      <option value="Insurance"  <?= set_select('type', 'Insurance');?>>Insurance</option>
+       <option value="Interest Paid" <?= set_select('type', 'Interest Paid');?> >Interest Paid</option>
+      <option  value="Legal & Professional Fees" <?= set_select('type', 'Legal & Professional Fees');?> >Legal & Professional Fees</option>
+      <option  value="Payroll Expenses" <?= set_select('type', 'Payroll Expenses');?> >Payroll Expenses</option>
+      <option value="Promotional Meals"  <?= set_select('type', 'Promotional Meals');?>>Promotional Meals</option>
+      <option value="Rent or Lease of Building" <?= set_select('type', 'Rent or Lease of Building');?> >Rent or Lease of Building</option>
+      <option  value="Repair & Maintenance" <?= set_select('type', 'Repair & Maintenance');?> >Repair & Maintenance</option>
+      <option  value="Shipping, Freight & Delivery" <?= set_select('type', 'Shipping, Freight & Delivery');?>>Shipping, Freight & Delivery</option>
+      <option value="Supplies & Material" <?= set_select('type', 'Supplies & Material');?> >Supplies & Material</option>
+      <option value="Taxes Paid" <?= set_select('type', 'Taxes Paid');?> >Taxes Paid</option>
+      <option  value="Travel" <?= set_select('type', 'Travel');?> >Travel</option>
+      <option value="Travel Meals"  <?= set_select('type', 'Travel Meals');?> >Travel Meals</option>
+      <option value="Utilities" <?= set_select('type', 'Utilities');?> >Utilities</option>
+       <option value="Other Miscillaneous Service Cost" <?= set_select('type', 'Other Miscillaneous Service Cost');?> >Other Miscillaneous Service Cost</option>
+    </select></td>
+     <td class="star"><?php echo form_error('type');?></td>
+  </tr>
+  
+ 
+  <tr>
+    <td>Opening Balance</td>
+    <td colspan="2" class="star"><input  type="text" value="<?= set_value('balance');?>" name="balance"/>&nbsp;&nbsp;<?php echo form_error('balance');?></td>
+  </tr>
+  <tr>
+    <td><input  type="submit" value="Save"/></td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+ </table>
+  </form>
+</div> 
+
+
+  </div>
+ 

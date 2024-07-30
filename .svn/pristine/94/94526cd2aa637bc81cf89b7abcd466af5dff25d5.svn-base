@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php echo link_tag('asset/mycss.css');?>
+
+<title>Login as a user</title>
+</head>
+
+<body id="mainbg2">
+
+<div id="border_1">
+<div id="left"></div>
+<div id="left2"></div>
+<div id="login"><table width="200" border="0" cellspacing="2" cellpadding="2">
+<?php echo form_open('author/login');?>
+  <tr>
+    <td class="star"><?php echo validation_errors();?> </td>
+  </tr>
+  
+  <tr>
+    <td>Username</td>
+  </tr>
+  <tr>
+    <td><input  type="text" name="username" value="" height="40px" class="inputText" size="40" /></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+  </tr>
+  <tr>
+    <td><input type="password" name="password" value=""  size="40" style="height:40px;" /></td>
+  </tr>
+  <tr>
+    <td><input  type="submit" value="Submit"/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Fogot Your Password?</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  </form>
+</table>
+</div>
+<!--<div id="logo_topband"></div>-->
+<div id="logo_top"><?php echo img('asset/images/logo3.gif');?><!--<img src="images/logo3.gif" width="253" height="32" alt="logo" />--></div>
+<div id="reallogo"><?php echo img('asset/images/logo2.png');?><!--<img src="images/logo2.png" width="135" height="33" alt="software logo" />--></div>
+</div>
+
+</body>
+</html>
